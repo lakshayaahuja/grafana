@@ -65,6 +65,16 @@ docker-compose up --build
 # Start Grafana with plugins loaded
 
 
+Once the services are running:
+
+Open your browser and visit:
+👉 http://localhost:3000
+
+Default Grafana credentials:
+| Username | Password |
+  |:---------|:---------|
+  | admin    | admin    |
+
 # Adding Metrics Endpoint
 Set http://localhost:3001/metrics as your datasource URL in Grafana.
 
