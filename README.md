@@ -78,6 +78,8 @@ Default Grafana credentials:
 # Adding Metrics Endpoint
 Set http://localhost:3001/metrics as your datasource URL in Grafana.
 
+# Adding a Custom Metric through Dropdown Options via QueryData
+Select a metric name from the provided options and filter the data from the JSON.
 
 # Notes
 Ensure that the REST server (rest-server) is properly running and accessible from Grafana.
