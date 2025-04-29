@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=bloom-bloom-datasource,bloom-bloom-panel
+    volumes:
+      - /root/compunnel-lakshay-datasource/bloom-bloom-datasource/dist:/var/lib/grafana/plugins/bloom-bloom-datasource
+      - /root/compunnel-lakshay-datasource/bloom-bloom-panel/dist:/var/lib/grafana/plugins/bloom-bloom-panel
+    depends_on:
+      - rest-server
+
+  rest-server:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - /root/compunnel-lakshay-datasource/rest-server:/app
+    ports:
+      - "3001:3001"
+    command: ["node", "server.js"]
+    container_name: rest-server
